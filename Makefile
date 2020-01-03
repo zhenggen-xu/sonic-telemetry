@@ -7,12 +7,12 @@ INSTALL := /usr/bin/install
 all: sonic-telemetry
 
 sonic-telemetry:
-	/usr/local/go/bin/go get -v github.com/Azure/sonic-telemetry/telemetry
-	/usr/local/go/bin/go get -v github.com/Azure/sonic-telemetry/dialout/dialout_client_cli
+	/usr/local/go/bin/go get -v github.com/zhenggen-xu/sonic-telemetry/telemetry
+	/usr/local/go/bin/go get -v github.com/zhenggen-xu/sonic-telemetry/dialout/dialout_client_cli
 
 check:
-	/usr/local/go/bin/go get -v -t github.com/Azure/sonic-telemetry/gnmi_server/...
-	/usr/local/go/bin/go test -v ${GOPATH}/src/github.com/Azure/sonic-telemetry/gnmi_server
+	/usr/local/go/bin/go get -v -t github.com/zhenggen-xu/sonic-telemetry/gnmi_server/...
+	/usr/local/go/bin/go test -v ${GOPATH}/src/github.com/zhenggen-xu/sonic-telemetry/gnmi_server
 
 install:
 	$(INSTALL) -D ${GOPATH}/bin/telemetry $(DESTDIR)/usr/sbin/telemetry
