@@ -7,8 +7,6 @@ INSTALL := /usr/bin/install
 GO := /usr/local/go/bin/go
 BUILD_DIR := $(GOPATH)/bin
 
-SRC_FILES=$(shell find . -name '*.go' | grep -v '_test.go' | grep -v '/tests/')
-TEST_FILES=$(wildcard *_test.go)
 ifeq ($(SONIC_TELEMETRY_READWRITE),y)
 BLD_FLAGS := -tags readwrite
 endif
@@ -19,6 +17,7 @@ all: sonic-telemetry
 
 go.mod:
 	/usr/local/go/bin/go mod init github.com/Azure/sonic-telemetry
+
 tel-deps:
 	$(GO) get github.com/openconfig/gnmi@89b2bf29312cda887da916d0f3a32c1624b7935f
 	$(GO) get github.com/jipanyang/gnxi@f0a90cca6fd0041625bcce561b71f849c9b65a8d
